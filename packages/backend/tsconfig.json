@@ -5,7 +5,6 @@
     "moduleResolution": "Node",
     "lib": ["ES2022"],
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -28,9 +27,14 @@
   },
   "include": [
     "src/**/*",
-    "../shared/src/**/*"   // ✅ include shared
+    "../shared/src/**/*"
   ],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
   "ts-node": {
     "esm": true
   }
