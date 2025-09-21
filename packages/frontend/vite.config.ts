@@ -2,10 +2,18 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@repo/shared': path.resolve(__dirname, '../shared/src'),
+    },
+    dedupe: ['react', 'react-dom'],
+  },
   css: {
     postcss: {
       plugins: [
@@ -16,5 +24,10 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+  },
+  build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
   },
 })
