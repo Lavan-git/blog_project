@@ -16,7 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": false,
+    "noEmit": false,                // ✅ must be false
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowImportingTsExtensions": false,
