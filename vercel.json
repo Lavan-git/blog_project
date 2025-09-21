@@ -1,6 +1,6 @@
 {
   "installCommand": "npm install",
-  "buildCommand": "npm run build",
+  "buildCommand": "npx turbo build --filter=frontend",
   "outputDirectory": "packages/frontend/dist",
   "functions": {
     "api/**/*.ts": {
