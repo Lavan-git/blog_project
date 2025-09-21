@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "Node",        // ✅ use Node resolution, not bundler
+    "moduleResolution": "Node",
     "lib": ["ES2022"],
     "outDir": "./dist",
     "rootDir": "./src",
@@ -16,18 +16,20 @@
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": false,          // ✅ allow cross-package imports
+    "isolatedModules": false,
     "noEmit": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowImportingTsExtensions": false,
-    "baseUrl": ".",                    // ✅ enable path alias resolution
+    "baseUrl": ".",
     "paths": {
-      "@repo/shared": ["../shared/src"] // ✅ resolves shared package during build
+      "@repo/shared": ["../shared/src"]
     }
-    
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "../shared/src/**/*"   // ✅ include shared
+  ],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
   "ts-node": {
     "esm": true
