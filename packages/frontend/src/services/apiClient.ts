@@ -12,7 +12,7 @@ class ApiClient {
 
   constructor() {
     this.client = axios.create({
-      baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001/api',
+      baseURL: this.getApiBaseUrl(),
       timeout: 10000,
       headers: {
         'Content-Type': 'application/json',
@@ -20,6 +20,21 @@ class ApiClient {
     })
 
     this.setupInterceptors()
+  }
+
+  private getApiBaseUrl(): string {
+    // Use environment variable if provided
+    if (import.meta.env.VITE_API_URL) {
+      return import.meta.env.VITE_API_URL
+    }
+
+    // For production (Vercel), use relative API routes
+    if (import.meta.env.PROD) {
+      return '/api'
+    }
+
+    // For development, use local backend
+    return 'http://localhost:3001/api'
   }
 
   private setupInterceptors(): void {
