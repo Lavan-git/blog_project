@@ -1,37 +1,10 @@
 {
-  "version": 2,
+  "buildCommand": "cd packages/frontend && npm install && npm run build",
+  "outputDirectory": "packages/frontend/dist",
+  "installCommand": "npm install",
   "functions": {
     "api/**/*.ts": {
-      "runtime": "nodejs20.x",
-      "maxDuration": 30
+      "runtime": "nodejs20.x"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
-    }
-  ],
-  "buildCommand": "cd packages/frontend && npm run build",
-  "outputDirectory": "packages/frontend/dist",
-  "installCommand": "npm install && cd packages/frontend && npm install && cd ../backend && npm install"
+  }
 }
