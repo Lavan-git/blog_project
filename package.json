@@ -4,6 +4,7 @@
   "private": true,
   "description": "A professional full-stack blog application built with MERN stack",
   "type": "module",
+  "packageManager": "npm@10.0.0",
   "workspaces": [
     "packages/backend",
     "packages/frontend",
