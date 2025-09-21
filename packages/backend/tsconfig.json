@@ -1,29 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "lib": ["ES2022"],
+    "target": "ES2020",
+    "module": "CommonJS",
     "outDir": "./dist",
-    "strict": true,
+    "rootDir": "./src",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": false,                // ✅ must be false
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowImportingTsExtensions": false,
-    "baseUrl": ".",
-    "paths": {
-      "@repo/shared": ["../shared/src"]
-    }
+    "types": ["node", "express"]
   },
   "include": [
     "src/**/*",
@@ -31,11 +18,6 @@
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "**/*.test.ts",
-    "**/*.spec.ts"
-  ],
-  "ts-node": {
-    "esm": true
-  }
+    "dist"
+  ]
 }
