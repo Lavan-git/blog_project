@@ -25,9 +25,12 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  build: {
-    commonjsOptions: {
-      include: [/node_modules/],
-    },
+build: {
+  outDir: '../backend/dist/public',   // 👈 frontend build goes into backend/dist/public
+  emptyOutDir: true,
+  commonjsOptions: {
+    include: [/node_modules/],
   },
+},
+
 })
