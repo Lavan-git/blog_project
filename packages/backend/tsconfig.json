@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",        // ✅ use Node resolution, not bundler
     "lib": ["ES2022"],
     "outDir": "./dist",
     "rootDir": "./src",
@@ -16,11 +16,15 @@
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,          // ✅ allow cross-package imports
     "noEmit": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowImportingTsExtensions": false,
+    "baseUrl": ".",                    // ✅ enable path alias resolution
+    "paths": {
+      "@repo/shared": ["../shared/src"] // ✅ resolves shared package during build
+    },
     "types": ["node", "jest"]
   },
   "include": ["src/**/*"],
